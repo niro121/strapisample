@@ -1,0 +1,6 @@
+<div id="teamlist" v-cloak>
+
+  <h1 v-for="member in team"><a :href="'/member/' + member.id">{{member.attributes.name}}</a></h1>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
