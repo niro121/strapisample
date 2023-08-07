@@ -34,6 +34,7 @@ module.exports.routes = {
   'GET /account/profile':    { action: 'account/view-edit-profile' },
   'GET /teamlist': { action: 'view-teamlist' },
   'GET /member/:id': { action: 'view-teammember' },
+  'POST /api/v1/addmember': { action: 'addmember' },
 
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗

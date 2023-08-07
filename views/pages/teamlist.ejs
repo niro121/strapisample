@@ -1,5 +1,32 @@
 <div id="teamlist" v-cloak>
 
+  <modal class="modal fade" v-if="openmodal" @close="close()" v-cloak>
+    <ajax-form action="addmember" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingForm" @submitted="submittedForm($event)">
+      <div class="modal-header">
+        <h5 class="modal-title text-center">ADD TEAM MEMBER</h5>
+        <button type="button" class="modal-close-button" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+          
+        <div class="modal-body text-center">
+
+          <div class="col-md-12 mb-3">
+            Name :
+            <input type="text" class="form-control" :class="[formErrors.name ? 'is-invalid' : '']" v-model.trim="formData.name" placeholder="">
+          </div>
+
+        </div>
+
+        <div class="modal-footer flex-row-reverse justify-content-between">
+          <p class="text-danger" v-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</small></p>
+          <ajax-button type="submit" :syncing="syncing" class="btn-danger btn-lg">ADD</ajax-button>
+        </div>
+    </ajax-form>
+  </modal>
+
+  <button type="button" class="btn btn-primary" @click="open" >Add Team Member +</button>
+  
+  <br>
+
   <h1 v-for="member in team"><a :href="'/member/' + member.id">{{member.attributes.name}}</a></h1>
 
 </div>

@@ -23,4 +23,5 @@ module.exports.policies = {
   'deliver-contact-form-message': true,
   'view-teamlist':true,
   'view-teammember':true,
+  'addmember':true,
 };
